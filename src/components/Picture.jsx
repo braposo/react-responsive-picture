@@ -4,14 +4,6 @@ import Radium from "radium";
 require("respimage"); // eslint-disable-line import/no-commonjs
 
 class Picture extends React.PureComponent {
-    getStyles() {
-        const styles = {};
-
-        return [
-            styles,
-            this.props.style,
-        ];
-    }
 
     renderSources(sources) {
         if (!sources) {
@@ -60,7 +52,7 @@ class Picture extends React.PureComponent {
                     src={this.props.src}
                     width={this.props.width}
                     height={this.props.height}
-                    style={this.getStyles()}
+                    style={this.props.style}
                     data-no-retina={true}
                 />
             </picture>
