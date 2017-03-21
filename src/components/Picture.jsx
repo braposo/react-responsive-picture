@@ -5,34 +5,33 @@ require("respimage"); // eslint-disable-line import/no-commonjs
 
 class Picture extends React.PureComponent {
 
-    renderSources(sources) {
+    renderSources() {
+        const ieVersion = document.documentMode ? document.documentMode : -1;
+        const { sources } = this.props;
+
         if (!sources) {
             return null;
         }
 
-        return sources.map((source, index) => {
+        const mappedSources = sources.map((source, index) => (
+            <source
+                key={index}
+                srcSet={source.srcSet}
+                media={source.media}
+            />
+        ));
+
+        // IE9 requires the sources to be wrapped around an <audio> tag.
+        if (ieVersion === 9) {
             return (
-                <source
-                    key={index}
-                    srcSet={source.srcSet}
-                    media={source.media}
-                />
+                <audio>
+                    {mappedSources}
+                </audio>
             );
-        });
-    }
-
-    // IE9 requires the sources to be wrapped around an <audio> tag.
-    // Can't even begin to understand that madness.
-    renderIESources(sources) {
-        if (!sources) {
-            return null;
         }
 
-        return (
-            <audio>
-                {this.renderSources(sources)}
-            </audio>
-        );
+        return mappedSources;
+
     }
 
     render() {
@@ -41,11 +40,7 @@ class Picture extends React.PureComponent {
 
         return (
             <picture>
-                {
-                    ieVersion === 9 ?
-                        this.renderIESources(sources) :
-                        this.renderSources(sources)
-                }
+                {this.renderSources()}
                 <img
                     alt={this.props.alt}
                     src={this.props.src}
