@@ -35,8 +35,6 @@ class Picture extends React.PureComponent {
     }
 
     render() {
-        const ieVersion = document.documentMode ? document.documentMode : -1;
-
         return (
             <picture>
                 {this.renderSources()}
