@@ -1,9 +1,11 @@
 import React from "react";
 import Radium from "radium";
-
-require("respimage"); // eslint-disable-line import/no-commonjs
+import picturefill from "picturefill";
 
 class Picture extends React.PureComponent {
+    componentDidMount() {
+        picturefill();
+    }
 
     renderSources() {
         const ieVersion = document.documentMode ? document.documentMode : -1;
