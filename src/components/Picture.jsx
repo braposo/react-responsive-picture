@@ -18,7 +18,12 @@ class Picture extends React.PureComponent {
                 media,
             };
 
-            return (<source key={id} {...sourceProps} />);
+            return (
+                <source
+                    key={id}
+                    {...sourceProps}
+                />
+            );
         });
     }
 
