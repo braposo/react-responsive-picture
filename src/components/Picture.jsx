@@ -65,7 +65,10 @@ Picture.propTypes = {
     height: React.PropTypes.number,
     sources: React.PropTypes.array,
     src: React.PropTypes.string.isRequired,
-    style: React.PropTypes.array,
+    style: React.PropTypes.oneOfType([
+        React.PropTypes.array,
+        React.PropTypes.object,
+    ]),
     alt: React.PropTypes.string,
 };
 
