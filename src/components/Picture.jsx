@@ -10,10 +10,10 @@ class Picture extends React.PureComponent {
             return null;
         }
 
-        return sources.map((source, id) => {
+        return sources.map((source, index) => {
             return (
                 <source
-                    key={id}
+                    key={index}
                     srcSet={source.srcSet}
                     media={source.media}
                 />
