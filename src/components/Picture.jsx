@@ -11,17 +11,11 @@ class Picture extends React.PureComponent {
         }
 
         return sources.map((source, id) => {
-            const { srcSet, media } = source;
-
-            const sourceProps = {
-                srcSet,
-                media,
-            };
-
             return (
                 <source
                     key={id}
-                    {...sourceProps}
+                    srcSet={source.srcSet}
+                    media={source.media}
                 />
             );
         });
