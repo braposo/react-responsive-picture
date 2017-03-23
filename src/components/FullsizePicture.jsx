@@ -60,7 +60,10 @@ class FullSizePicture extends React.PureComponent {
 FullSizePicture.propTypes = {
     sources: React.PropTypes.array,
     src: React.PropTypes.string,
-    style: React.PropTypes.array,
+    style: React.PropTypes.oneOfType([
+        React.PropTypes.array,
+        React.PropTypes.object,
+    ]),
 };
 
 export default Radium(FullSizePicture);

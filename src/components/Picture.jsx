@@ -4,63 +4,46 @@ import Radium from "radium";
 require("respimage"); // eslint-disable-line import/no-commonjs
 
 class Picture extends React.PureComponent {
-    getStyles() {
-        const styles = {};
 
-        return [
-            styles,
-            this.props.style,
-        ];
-    }
+    renderSources() {
+        const ieVersion = document.documentMode ? document.documentMode : -1;
+        const { sources } = this.props;
 
-    renderSources(sources) {
         if (!sources) {
             return null;
         }
 
-        return sources.map((source, id) => {
-            const { srcSet, media } = source;
+        const mappedSources = sources.map((source, index) => (
+            <source
+                key={index}
+                srcSet={source.srcSet}
+                media={source.media}
+            />
+        ));
 
-            const sourceProps = {
-                srcSet,
-                media,
-            };
-
-            return (<source key={id} {...sourceProps} />);
-        });
-    }
-
-    // IE9 requires the sources to be wrapped around an <audio> tag.
-    // Can't even begin to understand that madness.
-    renderIESources(sources) {
-        if (!sources) {
-            return null;
+        // IE9 requires the sources to be wrapped around an <audio> tag.
+        if (ieVersion === 9) {
+            return (
+                <audio>
+                    {mappedSources}
+                </audio>
+            );
         }
 
-        return (
-            <audio>
-                {this.renderSources(sources)}
-            </audio>
-        );
+        return mappedSources;
+
     }
 
     render() {
-        const { sources } = this.props;
-        const ieVersion = document.documentMode ? document.documentMode : -1;
-
         return (
             <picture>
-                {
-                    ieVersion === 9 ?
-                        this.renderIESources(sources) :
-                        this.renderSources(sources)
-                }
+                {this.renderSources()}
                 <img
                     alt={this.props.alt}
                     src={this.props.src}
                     width={this.props.width}
                     height={this.props.height}
-                    style={this.getStyles()}
+                    style={this.props.style}
                     data-no-retina={true}
                 />
             </picture>
@@ -73,7 +56,10 @@ Picture.propTypes = {
     height: React.PropTypes.number,
     sources: React.PropTypes.array,
     src: React.PropTypes.string.isRequired,
-    style: React.PropTypes.array,
+    style: React.PropTypes.oneOfType([
+        React.PropTypes.array,
+        React.PropTypes.object,
+    ]),
     alt: React.PropTypes.string,
 };
 
