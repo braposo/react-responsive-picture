@@ -45,6 +45,7 @@ class Picture extends React.PureComponent {
                     src={this.props.src}
                     width={this.props.width}
                     height={this.props.height}
+                    className={this.props.className}
                     data-no-retina={true}
                     {...this.getImageStyles()}
                 />
@@ -63,6 +64,7 @@ Picture.propTypes = {
         React.PropTypes.object,
     ]),
     alt: React.PropTypes.string,
+    className: React.PropTypes.string,
 };
 
 Picture.defaultProps = {
