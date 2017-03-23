@@ -44,7 +44,7 @@ class FullSizePicture extends React.PureComponent {
 
     render() {
         return (
-            <div {...this.getStyles()}>
+            <div className={this.props.className} {...this.getStyles()}>
                 <div style={this.getImageWrapperStyles()}>
                     <Picture
                         src={this.props.src}
@@ -58,6 +58,7 @@ class FullSizePicture extends React.PureComponent {
 }
 
 FullSizePicture.propTypes = {
+    className: React.PropTypes.string,
     sources: React.PropTypes.array,
     src: React.PropTypes.string,
     style: React.PropTypes.oneOfType([
