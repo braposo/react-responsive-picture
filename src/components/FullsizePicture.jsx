@@ -1,6 +1,6 @@
-import Radium from "radium";
 import Picture from "./Picture";
 import React from "react";
+import { css } from "glamor";
 
 class FullSizePicture extends React.PureComponent {
     getStyles() {
@@ -10,10 +10,10 @@ class FullSizePicture extends React.PureComponent {
             position: "relative",
         };
 
-        return [
+        return css(
             styles,
             this.props.style,
-        ];
+        );
     }
 
     getImageWrapperStyles() {
@@ -44,7 +44,7 @@ class FullSizePicture extends React.PureComponent {
 
     render() {
         return (
-            <div style={this.getStyles()}>
+            <div {...this.getStyles()}>
                 <div style={this.getImageWrapperStyles()}>
                     <Picture
                         src={this.props.src}
@@ -66,4 +66,4 @@ FullSizePicture.propTypes = {
     ]),
 };
 
-export default Radium(FullSizePicture);
+export default FullSizePicture;

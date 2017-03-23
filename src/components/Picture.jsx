@@ -1,5 +1,4 @@
 import React from "react";
-import Radium from "radium";
 
 require("respimage"); // eslint-disable-line import/no-commonjs
 
@@ -66,4 +65,4 @@ Picture.defaultProps = {
     src: "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
 };
 
-export default Radium(Picture);
+export default Picture;
