@@ -33,7 +33,6 @@ class Picture extends React.PureComponent {
         }
 
         return mappedSources;
-
     }
 
     render() {

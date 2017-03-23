@@ -1,6 +1,6 @@
-import React from "react";
 import Radium from "radium";
 import Picture from "./Picture";
+import React from "react";
 
 class FullSizePicture extends React.PureComponent {
     getStyles() {
