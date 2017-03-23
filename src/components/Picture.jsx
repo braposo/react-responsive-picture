@@ -1,8 +1,12 @@
 import React from "react";
+import { css } from "glamor";
 
 require("respimage"); // eslint-disable-line import/no-commonjs
 
 class Picture extends React.PureComponent {
+    getImageStyles() {
+        return css(this.props.style);
+    }
 
     renderSources() {
         const ieVersion = document.documentMode ? document.documentMode : -1;
@@ -41,8 +45,8 @@ class Picture extends React.PureComponent {
                     src={this.props.src}
                     width={this.props.width}
                     height={this.props.height}
-                    style={this.props.style}
                     data-no-retina={true}
+                    {...this.getImageStyles()}
                 />
             </picture>
         );
