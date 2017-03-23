@@ -46,11 +46,11 @@
     "rimraf": "^2.4.3"
   },
   "peerDependencies": {
+    "radium": "^0.18.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
   },
   "dependencies": {
-    "radium": "^0.18.2",
     "respimage": "^1.4.2"
   }
 }
