@@ -1,9 +1,12 @@
 import React from "react";
 import { css } from "glamor";
-
-require("respimage"); // eslint-disable-line import/no-commonjs
+import picturefill from "picturefill";
 
 class Picture extends React.PureComponent {
+    componentDidMount() {
+        picturefill();
+    }
+
     getImageStyles() {
         return css(this.props.style);
     }
