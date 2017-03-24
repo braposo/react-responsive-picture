@@ -1,9 +1,12 @@
 import React from "react";
-import Radium from "radium";
+import { css } from "glamor";
 
 require("respimage"); // eslint-disable-line import/no-commonjs
 
 class Picture extends React.PureComponent {
+    getImageStyles() {
+        return css(this.props.style);
+    }
 
     renderSources() {
         const ieVersion = document.documentMode ? document.documentMode : -1;
@@ -42,8 +45,9 @@ class Picture extends React.PureComponent {
                     src={this.props.src}
                     width={this.props.width}
                     height={this.props.height}
-                    style={this.props.style}
+                    className={this.props.className}
                     data-no-retina={true}
+                    {...this.getImageStyles()}
                 />
             </picture>
         );
@@ -60,10 +64,11 @@ Picture.propTypes = {
         React.PropTypes.object,
     ]),
     alt: React.PropTypes.string,
+    className: React.PropTypes.string,
 };
 
 Picture.defaultProps = {
     src: "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
 };
 
-export default Radium(Picture);
+export default Picture;

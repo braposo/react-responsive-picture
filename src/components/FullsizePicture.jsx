@@ -1,6 +1,6 @@
-import Radium from "radium";
 import Picture from "./Picture";
 import React from "react";
+import { css } from "glamor";
 
 class FullSizePicture extends React.PureComponent {
     getStyles() {
@@ -10,24 +10,24 @@ class FullSizePicture extends React.PureComponent {
             position: "relative",
         };
 
-        return [
+        return css(
             styles,
             this.props.style,
-        ];
+        );
     }
 
     getImageWrapperStyles() {
-        return {
+        return css({
             position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
             right: 0,
-        };
+        });
     }
 
     getImageStyles() {
-        return {
+        return css({
             position: "absolute",
             top: "50%",
             left: "50%",
@@ -39,18 +39,18 @@ class FullSizePicture extends React.PureComponent {
             maxWidth: "none",
             maxHeight: "none",
             transform: "translate3d(-50%, -50%, 0)",
-        };
+        });
     }
 
     render() {
         return (
-            <div style={this.getStyles()}>
-                <div style={this.getImageWrapperStyles()}>
+            <div className={this.props.className} {...this.getStyles()}>
+                <div {...this.getImageWrapperStyles()}>
                     <Picture
                         alt={this.props.alt}
                         src={this.props.src}
                         sources={this.props.sources}
-                        style={this.getImageStyles()}
+                        {...this.getImageStyles()}
                     />
                 </div>
             </div>
@@ -59,6 +59,7 @@ class FullSizePicture extends React.PureComponent {
 }
 
 FullSizePicture.propTypes = {
+    className: React.PropTypes.string,
     alt: React.PropTypes.string,
     sources: React.PropTypes.array,
     src: React.PropTypes.string,
@@ -68,4 +69,4 @@ FullSizePicture.propTypes = {
     ]),
 };
 
-export default Radium(FullSizePicture);
+export default FullSizePicture;
