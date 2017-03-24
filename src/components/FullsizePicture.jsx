@@ -17,17 +17,17 @@ class FullSizePicture extends React.PureComponent {
     }
 
     getImageWrapperStyles() {
-        return {
+        return css({
             position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
             right: 0,
-        };
+        });
     }
 
     getImageStyles() {
-        return {
+        return css({
             position: "absolute",
             top: "50%",
             left: "50%",
@@ -39,17 +39,17 @@ class FullSizePicture extends React.PureComponent {
             maxWidth: "none",
             maxHeight: "none",
             transform: "translate3d(-50%, -50%, 0)",
-        };
+        });
     }
 
     render() {
         return (
             <div className={this.props.className} {...this.getStyles()}>
-                <div style={this.getImageWrapperStyles()}>
+                <div {...this.getImageWrapperStyles()}>
                     <Picture
                         src={this.props.src}
                         sources={this.props.sources}
-                        style={this.getImageStyles()}
+                        {...this.getImageStyles()}
                     />
                 </div>
             </div>
