@@ -15,17 +15,23 @@ class Picture extends React.PureComponent {
         const ieVersion = document.documentMode ? document.documentMode : -1;
         const { sources } = this.props;
 
-        if (!sources) {
+        if (sources == null) {
             return null;
         }
 
-        const mappedSources = sources.map((source, index) => (
-            <source
-                key={index}
-                srcSet={source.srcSet}
-                media={source.media}
-            />
-        ));
+        const mappedSources = sources.map((source, index) => {
+            if (source.srcSet == null) {
+                return null;
+            }
+
+            return (
+                <source
+                    key={index}
+                    srcSet={source.srcSet}
+                    media={source.media}
+                />
+            );
+        });
 
         // IE9 requires the sources to be wrapped around an <audio> tag.
         if (ieVersion === 9) {
