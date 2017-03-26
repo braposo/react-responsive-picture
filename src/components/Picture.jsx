@@ -46,21 +46,32 @@ class Picture extends React.PureComponent {
         return mappedSources;
     }
 
-    render() {
+    renderImage(skipSizes = false) {
+        // Adds sizes props if sources isn't defined
+        const sizesProp = skipSizes ? null : { sizes: this.props.sizes };
         return (
-            <picture>
-                {this.renderSources()}
-                <img
-                    alt={this.props.alt}
-                    src={this.props.src}
-                    width={this.props.width}
-                    height={this.props.height}
-                    className={this.props.className}
-                    data-no-retina={true}
-                    {...this.getImageStyles()}
-                />
-            </picture>
+            <img
+                alt={this.props.alt}
+                srcSet={this.props.src}
+                className={this.props.className}
+                data-no-retina={true}
+                {...sizesProp}
+                {...this.getImageStyles()}
+            />
         );
+    }
+
+    render() {
+        if (this.props.sources != null) {
+            return (
+                <picture>
+                    {this.renderSources()}
+                    {this.renderImage(true)}
+                </picture>
+            );
+        }
+
+        return this.renderImage();
     }
 }
 
