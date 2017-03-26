@@ -29,6 +29,7 @@ class Picture extends React.PureComponent {
                     key={index}
                     srcSet={source.srcSet}
                     media={source.media}
+                    type={source.type}
                 />
             );
         });
