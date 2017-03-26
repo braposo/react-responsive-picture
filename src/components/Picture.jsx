@@ -37,9 +37,9 @@ class Picture extends React.PureComponent {
         // IE9 requires the sources to be wrapped around an <audio> tag.
         if (ieVersion === 9) {
             return (
-                <audio>
+                <video style={{ display: "none" }}>
                     {mappedSources}
-                </audio>
+                </video>
             );
         }
 
