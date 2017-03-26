@@ -76,8 +76,6 @@ class Picture extends React.PureComponent {
 }
 
 Picture.propTypes = {
-    width: React.PropTypes.number,
-    height: React.PropTypes.number,
     sources: React.PropTypes.array,
     src: React.PropTypes.string.isRequired,
     style: React.PropTypes.oneOfType([
@@ -86,6 +84,7 @@ Picture.propTypes = {
     ]),
     alt: React.PropTypes.string,
     className: React.PropTypes.string,
+    sizes: React.PropTypes.string,
 };
 
 Picture.defaultProps = {
