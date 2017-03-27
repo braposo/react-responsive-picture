@@ -15,6 +15,10 @@
     "type": "git",
     "url": "git+https://github.com/EDITD/react-responsive-picture.git"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "keywords": [
     "image",
     "picture",
