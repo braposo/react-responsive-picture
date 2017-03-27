@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-picture",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A future-proof responsive image component that supports latest Picture specification",
   "main": "./dist/index.js",
   "scripts": {
