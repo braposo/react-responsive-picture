@@ -129,7 +129,7 @@ The `sources` prop is where you can determine the behaviour of the `<Picture>` c
 
 For each source you can send an object containing `srcSet`, `media` and `type` although the last two are optional.
 
-### Utilities
+## Utilities
 
 There's also a `<FullsizePicture>` component that you can use to display full-size images using the same benefits of `<Picture>` for art direction.
 
