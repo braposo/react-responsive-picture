@@ -149,7 +149,7 @@ There's also a `<FullsizePicture>` component that you can use to display full-si
 </div>
 ```
 
-It will automatically fill the entire parent element maintaining the original image ratio. Please not that the parent element needs to have a defined height as you would expect for any background image as well.
+It will automatically fill the entire parent element maintaining the original image ratio. Please note that the parent element needs to have a defined height as you would expect for any background image as well.
 
 ## Contributing
 
