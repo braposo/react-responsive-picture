@@ -15,51 +15,67 @@ class Picture extends React.PureComponent {
         const ieVersion = document.documentMode ? document.documentMode : -1;
         const { sources } = this.props;
 
-        if (!sources) {
+        if (sources == null) {
             return null;
         }
 
-        const mappedSources = sources.map((source, index) => (
-            <source
-                key={index}
-                srcSet={source.srcSet}
-                media={source.media}
-            />
-        ));
+        const mappedSources = sources.map((source, index) => {
+            if (source.srcSet == null) {
+                return null;
+            }
+
+            return (
+                <source
+                    key={index}
+                    srcSet={source.srcSet}
+                    media={source.media}
+                    type={source.type}
+                />
+            );
+        });
 
         // IE9 requires the sources to be wrapped around an <audio> tag.
         if (ieVersion === 9) {
             return (
-                <audio>
+                <video style={{ display: "none" }}>
                     {mappedSources}
-                </audio>
+                </video>
             );
         }
 
         return mappedSources;
     }
 
-    render() {
+    renderImage(skipSizes = false) {
+        // Adds sizes props if sources isn't defined
+        const sizesProp = skipSizes ? null : { sizes: this.props.sizes };
         return (
-            <picture>
-                {this.renderSources()}
-                <img
-                    alt={this.props.alt}
-                    src={this.props.src}
-                    width={this.props.width}
-                    height={this.props.height}
-                    className={this.props.className}
-                    data-no-retina={true}
-                    {...this.getImageStyles()}
-                />
-            </picture>
+            <img
+                alt={this.props.alt}
+                srcSet={this.props.src}
+                className={this.props.className}
+                data-no-retina={true}
+                {...sizesProp}
+                {...this.getImageStyles()}
+            />
         );
+    }
+
+    render() {
+        if (this.props.sources != null) {
+            return (
+                <picture>
+                    {this.renderSources()}
+                    {this.renderImage(true)}
+                </picture>
+            );
+        }
+
+        return this.renderImage();
     }
 }
 
 Picture.propTypes = {
-    width: React.PropTypes.number,
-    height: React.PropTypes.number,
     sources: React.PropTypes.array,
     src: React.PropTypes.string.isRequired,
     style: React.PropTypes.oneOfType([
@@ -68,6 +84,7 @@ Picture.propTypes = {
     ]),
     alt: React.PropTypes.string,
     className: React.PropTypes.string,
+    sizes: React.PropTypes.string,
 };
 
 Picture.defaultProps = {

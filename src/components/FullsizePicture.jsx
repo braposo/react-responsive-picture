@@ -7,6 +7,7 @@ class FullSizePicture extends React.PureComponent {
         const styles = {
             overflow: "hidden",
             width: "100%",
+            height: "100%",
             position: "relative",
         };
 
@@ -19,27 +20,24 @@ class FullSizePicture extends React.PureComponent {
     getImageWrapperStyles() {
         return css({
             position: "absolute",
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
+            top: "-50%",
+            width: "200%",
+            left: "-50%",
+            height: "200%",
         });
     }
 
     getImageStyles() {
-        return css({
+        return {
             position: "absolute",
-            top: "50%",
-            left: "50%",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
             margin: "auto",
-            width: "auto",
-            height: "auto",
-            minWidth: "100%",
-            minHeight: "100%",
-            maxWidth: "none",
-            maxHeight: "none",
-            transform: "translate3d(-50%, -50%, 0)",
-        });
+            minWidth: "50%",
+            minHeight: "50%",
+        };
     }
 
     render() {
@@ -50,7 +48,7 @@ class FullSizePicture extends React.PureComponent {
                         alt={this.props.alt}
                         src={this.props.src}
                         sources={this.props.sources}
-                        {...this.getImageStyles()}
+                        style={this.getImageStyles()}
                     />
                 </div>
             </div>
