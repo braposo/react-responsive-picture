@@ -15,6 +15,7 @@
     "dev": "yarn run clean && babel src -d lib --watch",
     "lint": "eslint src/ --ext .js,.jsx",
     "prepublish": "yarn run clean && yarn run build",
+    "release": "np",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -56,6 +57,7 @@
     "eslint-config-edited": "^1.0.0",
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-react": "^6.10.2",
+    "np": "^2.13.1",
     "react": "^15.4.2",
     "rimraf": "^2.4.3",
     "webpack": "^2.3.3"
