@@ -1,7 +1,14 @@
 {
     "presets": [
-        "es2015",
-        "stage-0",
+        ["env", {
+            loose: true,
+            modules: false
+        }],
         "react"
-    ]
+    ],
+    "env": {
+        "commonjs": {
+          "plugins": ["transform-es2015-modules-commonjs"]
+        }
+    }
 }
