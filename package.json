@@ -4,7 +4,6 @@
   "description": "A future-proof responsive image component that supports latest Picture specification",
   "main": "./lib/index.js",
   "module": "es/index.js",
-  "jsnext:main": "es/index.js",
   "scripts": {
     "build": "yarn run build:commonjs && yarn run build:es && npm run build:umd && npm run build:umd:min",
     "build:es": "babel src -d es",
