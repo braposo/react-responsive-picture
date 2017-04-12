@@ -15,7 +15,7 @@
     "lint": "eslint src/ --ext .js,.jsx",
     "prepublish": "yarn run clean && yarn run build",
     "release": "np",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests available\" && exit 0"
   },
   "repository": {
     "type": "git",
