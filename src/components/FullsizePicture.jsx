@@ -28,7 +28,7 @@ class FullSizePicture extends React.PureComponent {
     }
 
     getImageStyles() {
-        return {
+        const styles = {
             position: "absolute",
             top: 0,
             left: 0,
@@ -38,6 +38,11 @@ class FullSizePicture extends React.PureComponent {
             minWidth: "50%",
             minHeight: "50%",
         };
+
+        return css(
+            styles,
+            this.props.imageStyle,
+        );
     }
 
     render() {
@@ -62,6 +67,10 @@ FullSizePicture.propTypes = {
     sources: React.PropTypes.array,
     src: React.PropTypes.string,
     style: React.PropTypes.oneOfType([
+        React.PropTypes.array,
+        React.PropTypes.object,
+    ]),
+    imageStyle: React.PropTypes.oneOfType([
         React.PropTypes.array,
         React.PropTypes.object,
     ]),
