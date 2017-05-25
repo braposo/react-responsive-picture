@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { css } from "glamor";
 import picturefill from "picturefill";
 
@@ -76,15 +77,15 @@ class Picture extends React.PureComponent {
 }
 
 Picture.propTypes = {
-    sources: React.PropTypes.array,
-    src: React.PropTypes.string.isRequired,
-    style: React.PropTypes.oneOfType([
-        React.PropTypes.array,
-        React.PropTypes.object,
+    sources: PropTypes.array,
+    src: PropTypes.string.isRequired,
+    style: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
     ]),
-    alt: React.PropTypes.string,
-    className: React.PropTypes.string,
-    sizes: React.PropTypes.string,
+    alt: PropTypes.string,
+    className: PropTypes.string,
+    sizes: PropTypes.string,
 };
 
 Picture.defaultProps = {

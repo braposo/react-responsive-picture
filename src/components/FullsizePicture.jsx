@@ -1,5 +1,6 @@
 import Picture from "./Picture";
 import React from "react";
+import PropTypes from "prop-types";
 import { css } from "glamor";
 
 class FullSizePicture extends React.PureComponent {
@@ -62,17 +63,17 @@ class FullSizePicture extends React.PureComponent {
 }
 
 FullSizePicture.propTypes = {
-    className: React.PropTypes.string,
-    alt: React.PropTypes.string,
-    sources: React.PropTypes.array,
-    src: React.PropTypes.string,
-    style: React.PropTypes.oneOfType([
-        React.PropTypes.array,
-        React.PropTypes.object,
+    className: PropTypes.string,
+    alt: PropTypes.string,
+    sources: PropTypes.array,
+    src: PropTypes.string,
+    style: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
     ]),
-    imageStyle: React.PropTypes.oneOfType([
-        React.PropTypes.array,
-        React.PropTypes.object,
+    imageStyle: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
     ]),
 };
 
