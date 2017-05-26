@@ -11,7 +11,7 @@
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-responsive-picture.js",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/react-responsive-picture.min.js",
     "clean": "rimraf lib dist es",
-    "dev": "yarn run clean && babel src -d lib --watch",
+    "dev": "yarn run clean && cross-env BABEL_ENV=commonjs babel src -d lib --watch",
     "lint": "eslint src/ --ext .js,.jsx",
     "prepublish": "yarn run clean && yarn run build",
     "release": "np",
