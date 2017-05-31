@@ -8,8 +8,8 @@ class Picture extends React.PureComponent {
         picturefill();
     }
 
-    getImageStyles() {
-        return css(this.props.style);
+    getImageStyles(style) {
+        return css(style);
     }
 
     renderSources() {
@@ -47,32 +47,37 @@ class Picture extends React.PureComponent {
         return mappedSources;
     }
 
-    renderImage(skipSizes = false) {
+    renderImage(props, skipSizes = false) {
+        const { alt, src, className, sizes, style, ...rest } = props;
+
         // Adds sizes props if sources isn't defined
-        const sizesProp = skipSizes ? null : { sizes: this.props.sizes };
+        const sizesProp = skipSizes ? null : { sizes };
+
         return (
             <img
-                alt={this.props.alt}
-                srcSet={this.props.src}
-                className={this.props.className}
+                alt={alt}
+                srcSet={src}
+                className={className}
                 data-no-retina={true}
                 {...sizesProp}
-                {...this.getImageStyles()}
+                {...this.getImageStyles(style)}
+                {...rest}
             />
         );
     }
 
     render() {
-        if (this.props.sources != null) {
+        const { sources, ...rest } = this.props;
+        if (sources != null) {
             return (
                 <picture>
                     {this.renderSources()}
-                    {this.renderImage(true)}
+                    {this.renderImage(rest, true)}
                 </picture>
             );
         }
 
-        return this.renderImage();
+        return this.renderImage(rest);
     }
 }
 

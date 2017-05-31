@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { css } from "glamor";
 
 class FullSizePicture extends React.PureComponent {
-    getStyles() {
+    getStyles(propsStyle) {
         const styles = {
             overflow: "hidden",
             width: "100%",
@@ -14,7 +14,7 @@ class FullSizePicture extends React.PureComponent {
 
         return css(
             styles,
-            this.props.style,
+            propsStyle,
         );
     }
 
@@ -28,7 +28,7 @@ class FullSizePicture extends React.PureComponent {
         });
     }
 
-    getImageStyles() {
+    getImageStyles(propsStyle) {
         const styles = {
             position: "absolute",
             top: 0,
@@ -42,19 +42,19 @@ class FullSizePicture extends React.PureComponent {
 
         return css(
             styles,
-            this.props.imageStyle,
+            propsStyle,
         );
     }
 
     render() {
+        const { className, imageClassName, style, imageStyle, ...rest } = this.props;
         return (
-            <div className={this.props.className} {...this.getStyles()}>
+            <div className={className} {...this.getStyles(style)}>
                 <div {...this.getImageWrapperStyles()}>
                     <Picture
-                        alt={this.props.alt}
-                        src={this.props.src}
-                        sources={this.props.sources}
-                        style={this.getImageStyles()}
+                        className={imageClassName}
+                        style={this.getImageStyles(imageStyle)}
+                        {...rest}
                     />
                 </div>
             </div>
@@ -64,6 +64,7 @@ class FullSizePicture extends React.PureComponent {
 
 FullSizePicture.propTypes = {
     className: PropTypes.string,
+    imageClassName: PropTypes.string,
     alt: PropTypes.string,
     sources: PropTypes.array,
     src: PropTypes.string,
