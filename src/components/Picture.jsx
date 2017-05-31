@@ -84,10 +84,7 @@ class Picture extends React.PureComponent {
 Picture.propTypes = {
     sources: PropTypes.array,
     src: PropTypes.string.isRequired,
-    style: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.object,
-    ]),
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     alt: PropTypes.string,
     className: PropTypes.string,
     sizes: PropTypes.string,

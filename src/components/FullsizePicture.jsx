@@ -12,10 +12,7 @@ class FullSizePicture extends React.PureComponent {
             position: "relative",
         };
 
-        return css(
-            styles,
-            propsStyle,
-        );
+        return css(styles, propsStyle);
     }
 
     getImageWrapperStyles() {
@@ -40,14 +37,17 @@ class FullSizePicture extends React.PureComponent {
             minHeight: "50%",
         };
 
-        return css(
-            styles,
-            propsStyle,
-        );
+        return css(styles, propsStyle);
     }
 
     render() {
-        const { className, imageClassName, style, imageStyle, ...rest } = this.props;
+        const {
+            className,
+            imageClassName,
+            style,
+            imageStyle,
+            ...rest
+        } = this.props;
         return (
             <div className={className} {...this.getStyles(style)}>
                 <div {...this.getImageWrapperStyles()}>
@@ -68,14 +68,8 @@ FullSizePicture.propTypes = {
     alt: PropTypes.string,
     sources: PropTypes.array,
     src: PropTypes.string,
-    style: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.object,
-    ]),
-    imageStyle: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.object,
-    ]),
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    imageStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 export default FullSizePicture;
