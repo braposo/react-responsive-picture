@@ -1,15 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { css } from "glamor";
 import picturefill from "picturefill";
+import glamorous from "glamorous";
+
+const Img = glamorous.img();
 
 class Picture extends React.PureComponent {
     componentDidMount() {
         picturefill();
-    }
-
-    getImageStyles(style) {
-        return css(style);
     }
 
     renderSources() {
@@ -54,13 +52,13 @@ class Picture extends React.PureComponent {
         const sizesProp = skipSizes ? null : { sizes };
 
         return (
-            <img
+            <Img
                 alt={alt}
                 srcSet={src}
                 className={className}
                 data-no-retina={true}
+                css={style}
                 {...sizesProp}
-                {...this.getImageStyles(style)}
                 {...rest}
             />
         );
