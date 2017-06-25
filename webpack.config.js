@@ -44,7 +44,6 @@ var config = {
         new webpack.DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify(env),
         }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
     ],
 };
 
@@ -58,7 +57,8 @@ if (env === "production") {
                 screw_ie8: true,
                 warnings: false,
             },
-        })
+        }),
+        new webpack.optimize.ModuleConcatenationPlugin()
     );
 }
 
