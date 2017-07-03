@@ -58,17 +58,18 @@
     "eslint-config-edited": "^1.0.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-react": "^7.1.0",
+    "glamor": "^2.20.25",
     "np": "^2.16.0",
     "react": "^15.6.1",
     "rimraf": "^2.4.3",
     "webpack": "^3.0.0"
   },
   "peerDependencies": {
+    "glamor": "^2.20.25",
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
   },
   "dependencies": {
-    "glamor": "^2.20.25",
     "glamorous": "^3.23.3",
     "picturefill": "^3.0.2",
     "prop-types": "^15.5.10"
