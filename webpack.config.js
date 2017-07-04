@@ -1,6 +1,6 @@
 /* eslint-env node */
 var webpack = require("webpack");
-var path = require('path');
+var path = require("path");
 var env = process.env.NODE_ENV;
 
 var reactExternal = {
@@ -19,7 +19,7 @@ var reactDomExternal = {
 
 var config = {
     externals: {
-        "react": reactExternal,
+        react: reactExternal,
         "react-dom": reactDomExternal,
     },
     module: {
@@ -32,10 +32,7 @@ var config = {
         ],
     },
     resolve: {
-        modules: [
-            path.join(__dirname, "./src/"),
-            "node_modules",
-        ],
+        modules: [path.join(__dirname, "./src/"), "node_modules"],
         extensions: [".js", ".jsx"],
     },
     output: {
@@ -60,7 +57,8 @@ if (env === "production") {
                 screw_ie8: true,
                 warnings: false,
             },
-        })
+        }),
+        new webpack.optimize.ModuleConcatenationPlugin()
     );
 }
 

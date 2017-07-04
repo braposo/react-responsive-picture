@@ -1,79 +1,85 @@
 import Picture from "./Picture";
 import React from "react";
 import PropTypes from "prop-types";
-import { css } from "glamor";
+import glamorous from "glamorous";
+
+const Wrapper = glamorous.div(() => [
+    {
+        overflow: "hidden",
+        width: "100%",
+        height: "100%",
+        position: "relative",
+    },
+]);
+
+const PictureWrapper = glamorous.div(() => [
+    {
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+    },
+]);
 
 class FullSizePicture extends React.PureComponent {
-    getStyles() {
-        const styles = {
-            overflow: "hidden",
-            width: "100%",
-            height: "100%",
-            position: "relative",
-        };
-
-        return css(
-            styles,
-            this.props.style,
-        );
-    }
-
-    getImageWrapperStyles() {
-        return css({
-            position: "absolute",
-            top: "-50%",
-            width: "200%",
-            left: "-50%",
-            height: "200%",
-        });
-    }
-
-    getImageStyles() {
-        const styles = {
-            position: "absolute",
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            margin: "auto",
-            minWidth: "50%",
-            minHeight: "50%",
-        };
-
-        return css(
-            styles,
-            this.props.imageStyle,
-        );
+    getImageStyles(propsStyle) {
+        return [
+            {
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                margin: "auto",
+                height: "auto",
+                minWidth: "100%",
+                minHeight: "100%",
+                maxWidth: "none",
+                maxHeight: "none",
+                transform: "translate3d(-50%, -50%, 0)",
+            },
+            propsStyle,
+        ];
     }
 
     render() {
+        const {
+            className,
+            pictureClassName,
+            style,
+            pictureCSS,
+            css,
+            ...rest
+        } = this.props;
         return (
-            <div className={this.props.className} {...this.getStyles()}>
-                <div {...this.getImageWrapperStyles()}>
+            <Wrapper className={className} css={css} style={style}>
+                <PictureWrapper>
                     <Picture
-                        alt={this.props.alt}
-                        src={this.props.src}
-                        sources={this.props.sources}
-                        style={this.getImageStyles()}
+                        className={pictureClassName}
+                        css={this.getImageStyles(pictureCSS)}
+                        {...rest}
                     />
-                </div>
-            </div>
+                </PictureWrapper>
+            </Wrapper>
         );
     }
 }
 
 FullSizePicture.propTypes = {
     className: PropTypes.string,
+    pictureClassName: PropTypes.string,
     alt: PropTypes.string,
     sources: PropTypes.array,
     src: PropTypes.string,
-    style: PropTypes.oneOfType([
+    style: PropTypes.object,
+    css: PropTypes.oneOfType([
         PropTypes.array,
         PropTypes.object,
+        PropTypes.string,
     ]),
-    imageStyle: PropTypes.oneOfType([
+    pictureCSS: PropTypes.oneOfType([
         PropTypes.array,
         PropTypes.object,
+        PropTypes.string,
     ]),
 };
 

@@ -11,7 +11,7 @@
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-responsive-picture.js",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/react-responsive-picture.min.js",
     "clean": "rimraf lib dist es",
-    "dev": "yarn run clean && babel src -d lib --watch",
+    "dev": "yarn run clean && cross-env BABEL_ENV=commonjs babel src -d lib --watch",
     "lint": "eslint src/ --ext .js,.jsx",
     "prepublish": "yarn run clean && yarn run build",
     "release": "np",
@@ -45,28 +45,32 @@
   "homepage": "https://github.com/EDITD/react-responsive-picture#readme",
   "devDependencies": {
     "babel-cli": "^6.11.4",
-    "babel-core": "^6.11.4",
-    "babel-eslint": "^6.1.2",
-    "babel-loader": "^6.4.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-glamorous-displayname": "^1.1.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
-    "babel-preset-env": "^1.3.2",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.23.0",
-    "cross-env": "^4.0.0",
-    "eslint": "^3.5.0",
+    "cross-env": "^5.0.1",
+    "eslint": "^4.0.0",
     "eslint-config-edited": "^1.0.0",
-    "eslint-plugin-import": "^1.15.0",
-    "eslint-plugin-react": "^6.10.2",
-    "np": "^2.13.1",
-    "react": "^15.4.2",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-react": "^7.1.0",
+    "glamor": "^2.20.25",
+    "np": "^2.16.0",
+    "react": "^15.6.1",
     "rimraf": "^2.4.3",
-    "webpack": "^2.3.3"
+    "webpack": "^3.0.0"
   },
   "peerDependencies": {
+    "glamor": "^2.20.25",
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
   },
   "dependencies": {
-    "glamor": "^2.20.24",
+    "glamorous": "^3.23.3",
     "picturefill": "^3.0.2",
     "prop-types": "^15.5.10"
   }
