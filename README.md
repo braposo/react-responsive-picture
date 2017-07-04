@@ -8,6 +8,12 @@ A future-proof responsive image component that supports latest `<picture>` speci
 
 `npm install react-responsive-picture` or `yarn add react-responsive-picture`
 
+#### Dependencies
+
+`react-responsive-picture` requires `glamor` installed as peer dependency since version `2.0.0` so you need to add it (in case you're not using it in your project) by running:
+
+`npm install glamor` or `yarn add glamor`
+
 ## How to use
 
 ### Code
@@ -49,7 +55,7 @@ class App extends Component {
 | className | string | | Any additional CSS classes you might want to use to style the image |
 | css | object \|\| array \|\| string |  | Any additional styles you might want to send to the wrapper. Uses [glamorous](https://github.com/paypal/glamorous) to process it so you can send an object, an array or even `glamor` generated string classes. |
 
-**Note:** Before version `2.0.0` the `style` prop was parsed by `glamor` so it wasn't having the same behaviour as applying the `style` prop to any other React component. For that reason, the recommended prop to override the styles is now `css`, which will be parsed by `glamorous` and applied to the component. The `style` prop now has the default behaviour and will be treated as inline styles so it still works, but you can't have the nice features from `glamor` like hover states or media queries so be very careful about using it.
+**Note:** Before version `2.0.0` the `style` prop was parsed by `glamor` so it wasn't having the same behaviour as applying the `style` prop to any other React component. For that reason, the recommended prop to override the styles is now `css`, which will be parsed by `glamorous` and applied to the component. The `style` prop will be treated as inline styles so it still works, but you can't have the nice features from `glamor` like hover states or media queries so be very careful about using it.
 
 ## Examples
 
