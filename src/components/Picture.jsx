@@ -46,7 +46,7 @@ class Picture extends React.PureComponent {
     }
 
     renderImage(props, skipSizes = false) {
-        const { alt, src, className, sizes, style, css, ...rest } = props;
+        const { alt, src, sizes, ...rest } = props;
 
         // Adds sizes props if sources isn't defined
         const sizesProp = skipSizes ? null : { sizes };
@@ -55,9 +55,7 @@ class Picture extends React.PureComponent {
             <Img
                 alt={alt}
                 srcSet={src}
-                className={className}
                 data-no-retina={true}
-                css={[style, css]}
                 {...sizesProp}
                 {...rest}
             />
@@ -82,8 +80,12 @@ class Picture extends React.PureComponent {
 Picture.propTypes = {
     sources: PropTypes.array,
     src: PropTypes.string.isRequired,
-    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    css: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    style: PropTypes.object,
+    css: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
+        PropTypes.string,
+    ]),
     alt: PropTypes.string,
     className: PropTypes.string,
     sizes: PropTypes.string,
