@@ -1,13 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import picturefill from "picturefill";
 import glamorous from "glamorous";
 
 const Img = glamorous.img();
 
 class Picture extends React.PureComponent {
     componentDidMount() {
-        picturefill();
+        // c.f. https://github.com/scottjehl/picturefill/pull/556
+        var picturefill;
+        try {
+            picturefill = require('picturefill');
+        } catch(x) {}
+        
+        if (picturefill) picturefill(); // browser
+        // else node
     }
 
     renderSources() {
