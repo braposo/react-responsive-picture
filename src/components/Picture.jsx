@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import glamorous from "glamorous";
+import canUseDom from 'can-use-dom'
 
 const Img = glamorous.img();
 
@@ -17,7 +18,7 @@ class Picture extends React.PureComponent {
     }
 
     renderSources() {
-        const ieVersion = document.documentMode ? document.documentMode : -1;
+        const ieVersion = canUseDom && document.documentMode ? document.documentMode : -1;
         const { sources } = this.props;
 
         if (sources == null) {
