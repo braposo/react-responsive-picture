@@ -70,6 +70,7 @@
     "react-dom": "^15.0.1"
   },
   "dependencies": {
+    "can-use-dom": "^0.1.0",
     "glamorous": "^3.23.3",
     "picturefill": "^3.0.2",
     "prop-types": "^15.5.10"
