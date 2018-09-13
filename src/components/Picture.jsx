@@ -1,19 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import glamorous from "glamorous";
-import canUseDom from 'can-use-dom'
+import canUseDom from "can-use-dom";
 
 const Img = glamorous.img();
 
 class Picture extends React.PureComponent {
     componentDidMount() {
         // c.f. https://github.com/scottjehl/picturefill/pull/556
-        var picturefill;
+        let picturefill;
         try {
-            picturefill = require('picturefill');
-        } catch(x) {}
-        
-        if (picturefill) picturefill(); // browser
+            picturefill = require("picturefill");
+        } catch (x) {
+            throw x;
+        }
+
+        if (picturefill) {
+            picturefill(); // browser
+        }
         // else node
     }
 
@@ -42,11 +46,7 @@ class Picture extends React.PureComponent {
 
         // IE9 requires the sources to be wrapped around an <audio> tag.
         if (ieVersion === 9) {
-            return (
-                <video style={{ display: "none" }}>
-                    {mappedSources}
-                </video>
-            );
+            return <video style={{ display: "none" }}>{mappedSources}</video>;
         }
 
         return mappedSources;
@@ -58,15 +58,7 @@ class Picture extends React.PureComponent {
         // Adds sizes props if sources isn't defined
         const sizesProp = skipSizes ? null : { sizes };
 
-        return (
-            <Img
-                alt={alt}
-                srcSet={src}
-                data-no-retina={true}
-                {...sizesProp}
-                {...rest}
-            />
-        );
+        return <Img alt={alt} srcSet={src} data-no-retina={true} {...sizesProp} {...rest} />;
     }
 
     render() {
@@ -87,12 +79,7 @@ class Picture extends React.PureComponent {
 Picture.propTypes = {
     sources: PropTypes.array,
     src: PropTypes.string.isRequired,
-    style: PropTypes.object,
-    css: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.object,
-        PropTypes.string,
-    ]),
+    css: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string]),
     alt: PropTypes.string,
     className: PropTypes.string,
     sizes: PropTypes.string,
