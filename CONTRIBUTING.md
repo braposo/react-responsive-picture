@@ -10,7 +10,10 @@ Before opening an issue, please search the [issue tracker](https://github.com/ED
 
 Visit the [Issue tracker](https://github.com/EDITD/react-responsive-picture/issues) to find a list of open issues that need attention.
 
-Fork, then clone the repo:
+The quickest and easiest way of starting developing this library is by using the specific Codesandbox available at: https://codesandbox.io/s/github/EDITD/react-responsive-picture/
+
+
+If you want to use the more traditional way, start by forking and then cloning the repo:
 ```
 git clone https://github.com/your-username/react-responsive-picture.git
 ```

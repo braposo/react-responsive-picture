@@ -1,86 +1,53 @@
 import Picture from "./Picture";
 import React from "react";
+import cxs from "cxs/component";
 import PropTypes from "prop-types";
-import glamorous from "glamorous";
 
-const Wrapper = glamorous.div(() => [
-    {
-        overflow: "hidden",
-        width: "100%",
-        height: "100%",
-        position: "relative",
-    },
-]);
+const Wrapper = cxs("div")({
+    width: "100%",
+    height: "100%",
+    position: "relative",
+});
 
-const PictureWrapper = glamorous.div(() => [
-    {
-        position: "absolute",
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-    },
-]);
+const PictureWrapper = cxs("div")({
+    overflow: "hidden",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    position: "absolute",
+});
 
-class FullSizePicture extends React.PureComponent {
-    getImageStyles(propsStyle) {
-        return [
-            {
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                margin: "auto",
-                height: "auto",
-                minWidth: "100%",
-                minHeight: "100%",
-                maxWidth: "none",
-                maxHeight: "none",
-                transform: "translate3d(-50%, -50%, 0)",
-            },
-            propsStyle,
-        ];
-    }
+const Fullsized = Component => ({
+    className,
+    wrapperClassName,
+    children,
+    ...rest
+}) => {
+    const PictureComponent = cxs(Component)(
+        ({ cover = "width", center = false }) => ({
+            position: "absolute",
+            top: center ? "50%" : 0,
+            left: center ? "50%" : 0,
+            transform: center ? "translate(-50%, -50%)" : "none",
+            width: cover === "width" ? "100%" : "auto",
+            height: cover === "height" ? "100%" : "auto",
+        })
+    );
 
-    render() {
-        const {
-            className,
-            pictureClassName,
-            style,
-            pictureCSS,
-            css,
-            ...rest
-        } = this.props;
-        return (
-            <Wrapper className={className} css={css} style={style}>
-                <PictureWrapper>
-                    <Picture
-                        className={pictureClassName}
-                        css={this.getImageStyles(pictureCSS)}
-                        {...rest}
-                    />
-                </PictureWrapper>
-            </Wrapper>
-        );
-    }
-}
+    PictureComponent.propTypes = {
+        center: PropTypes.bool,
+        cover: PropTypes.string,
+    };
 
-FullSizePicture.propTypes = {
-    className: PropTypes.string,
-    pictureClassName: PropTypes.string,
-    alt: PropTypes.string,
-    sources: PropTypes.array,
-    src: PropTypes.string,
-    style: PropTypes.object,
-    css: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.object,
-        PropTypes.string,
-    ]),
-    pictureCSS: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.object,
-        PropTypes.string,
-    ]),
+    return (
+        <Wrapper className={wrapperClassName}>
+            <PictureWrapper>
+                <PictureComponent className={className} {...rest} />
+                {children}
+            </PictureWrapper>
+        </Wrapper>
+    );
 };
 
-export default FullSizePicture;
+export default Fullsized(Picture);
