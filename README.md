@@ -2,6 +2,12 @@
 
 A future-proof responsive image component that supports latest `<picture>` specification. Uses [picturefill](https://github.com/scottjehl/picturefill) for backward compatibility from IE9+.
 
+[![npm version][version-badge]][npm]
+[![npm downloads][downloads-badge]][npm]
+[![gzip size][size-badge]][size]
+[![MIT License][license-badge]][license]
+[![PRs Welcome][prs-badge]][prs]
+
 ---
 
 ## Installation
@@ -212,3 +218,13 @@ Please follow our [contributing guidelines](https://github.com/EDITD/react-respo
 
 [MIT](https://github.com/EDITD/react-responsive-picture/blob/master/LICENSE)
 
+[npm]: https://www.npmjs.com/package/react-responsive-picture
+[license]: https://github.com/EDITD/react-responsive-picture/blob/master/LICENSE
+[prs]: http://makeapullrequest.com
+[size]: https://unpkg.com/react-responsive-picture/dist/react-responsive-picture.min.js
+[version-badge]: https://img.shields.io/npm/v/react-responsive-picture.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dm/react-responsive-picture.svg?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/react-responsive-picture.svg?style=flat-square
+[size-badge]: http://img.badgesize.io/https://unpkg.com/react-responsive-picture/dist/react-responsive-picture.min.js?compression=gzip&style=flat-square
+[modules-badge]: https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg?style=flat-square
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
