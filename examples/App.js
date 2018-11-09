@@ -4,7 +4,8 @@ import cxs from "cxs/component";
 import { default as cxsStyles } from "cxs";
 
 const styles = cxsStyles({
-    opacity: 0.5,
+    border: "1px solid red",
+    boxShadow: "2px 2px 10px",
 });
 
 const Heading1 = cxs("h1")({
@@ -53,7 +54,7 @@ const App = () => (
         <h2>Full-width Picture with content</h2>
         <div style={{ height: 400 }}>
             <FullsizePicture
-                src="https://images.unsplash.com/photo-1470619549108-b85c56fe5be8?dpr=2&auto=format&w=1024&h=1024"
+                src="https://images.unsplash.com/photo-1520479627275-3eca80b17ecc?&auto=format&fit=crop&w=1280&q=80"
                 center={true}
             >
                 <Heading1 className="App-title">This is a heading</Heading1>
@@ -63,7 +64,7 @@ const App = () => (
         <div>
             <Picture
                 className={styles}
-                src="https://placeholdit.co//i/500x250?text=Normal%20image&bg=004500 1x, https://placeholdit.co//i/1000x500?text=Retina%20image&bg=004500 2x"
+                src="https://placeholdit.co//i/500x250?text=Normal%20image&bg=004500 1x, https://placeholdit.co//i/1000x500?text=Retina%20image&bg=007850 2x"
             />
         </div>
     </div>
