@@ -1,75 +1,65 @@
 {
-  "name": "react-responsive-picture",
-  "version": "2.1.0",
-  "description": "A future-proof responsive image component that supports latest Picture specification",
-  "main": "./lib/index.js",
-  "module": "es/index.js",
-  "scripts": {
-    "build": "yarn run build:commonjs && yarn run build:es && npm run build:umd && npm run build:umd:min",
-    "build:es": "babel src -d es",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d lib",
-    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-responsive-picture.js",
-    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/react-responsive-picture.min.js",
-    "clean": "rimraf lib dist es",
-    "dev": "yarn run clean && cross-env BABEL_ENV=commonjs babel src -d lib --watch",
-    "lint": "eslint src/ --ext .js,.jsx",
-    "prepublish": "yarn run clean && yarn run build",
-    "release": "np",
-    "test": "echo \"No tests available\" && exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EDITD/react-responsive-picture.git"
-  },
-  "files": [
-    "es",
-    "dist",
-    "lib",
-    "src"
-  ],
-  "keywords": [
-    "image",
-    "picture",
-    "responsive",
-    "react"
-  ],
-  "author": {
-    "name": "EDITED",
-    "email": "hello@edited.com",
-    "url": "http://edited.tech"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EDITD/react-responsive-picture/issues"
-  },
-  "homepage": "https://github.com/EDITD/react-responsive-picture#readme",
-  "devDependencies": {
-    "babel-cli": "^6.11.4",
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-env": "^1.5.2",
-    "babel-preset-react": "^6.23.0",
-    "cross-env": "^5.0.1",
-    "eslint": "^4.0.0",
-    "eslint-config-edited": "^1.0.0",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-react": "^7.1.0",
-    "np": "^2.16.0",
-    "react": "^15.6.1",
-    "rimraf": "^2.4.3",
-    "webpack": "^3.0.0"
-  },
-  "peerDependencies": {
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1"
-  },
-  "dependencies": {
-    "can-use-dom": "^0.1.0",
-    "cxs": "6.2.0",
-    "picturefill": "^3.0.2",
-    "prop-types": "^15.5.10"
-  }
+    "name": "react-responsive-picture",
+    "version": "2.1.0",
+    "description": "A future-proof responsive image component that supports latest Picture specification",
+    "main": "./lib/index.js",
+    "module": "es/index.js",
+    "scripts": {
+        "build": "yarn run build:commonjs && yarn run build:es && npm run build:umd && npm run build:umd:min",
+        "build:es": "babel src -d es",
+        "build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d lib",
+        "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-responsive-picture.js",
+        "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/react-responsive-picture.min.js",
+        "clean": "rimraf lib dist es",
+        "dev": "yarn run clean && cross-env BABEL_ENV=commonjs babel src -d lib --watch",
+        "lint": "eslint src/ --ext .js,.jsx",
+        "prepublish": "yarn run clean && yarn run build",
+        "release": "np",
+        "test": "echo \"No tests available\" && exit 0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/EDITD/react-responsive-picture.git"
+    },
+    "files": ["es", "dist", "lib", "src"],
+    "keywords": ["image", "picture", "responsive", "react"],
+    "author": {
+        "name": "EDITED",
+        "email": "hello@edited.com",
+        "url": "http://edited.tech"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/EDITD/react-responsive-picture/issues"
+    },
+    "homepage": "https://github.com/EDITD/react-responsive-picture#readme",
+    "devDependencies": {
+        "babel-cli": "^6.11.4",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
+        "babel-plugin-transform-object-rest-spread": "^6.23.0",
+        "babel-preset-env": "^1.5.2",
+        "babel-preset-react": "^6.23.0",
+        "cross-env": "^5.0.1",
+        "eslint": "^4.0.0",
+        "eslint-config-edited": "^1.0.0",
+        "eslint-plugin-import": "^2.3.0",
+        "eslint-plugin-react": "^7.1.0",
+        "np": "^2.16.0",
+        "react": "^15.6.1",
+        "rimraf": "^2.4.3",
+        "webpack": "^3.0.0"
+    },
+    "peerDependencies": {
+        "react": "^15.0.1",
+        "react-dom": "^15.0.1"
+    },
+    "dependencies": {
+        "can-use-dom": "0.1.0",
+        "cxs": "6.2.0",
+        "picturefill": "3.0.3",
+        "prop-types": "15.6.2"
+    }
 }
