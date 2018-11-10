@@ -10,7 +10,6 @@
         "react"
     ],
     "plugins": [
-        "glamorous-displayname",
         "transform-object-rest-spread"
     ],
     "env": {
