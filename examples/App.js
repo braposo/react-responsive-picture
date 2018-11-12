@@ -53,7 +53,7 @@ const App = () => (
         </div>
         <h2>Full-width Picture with content</h2>
         <div style={{ height: 400 }}>
-            <FullsizePicture src="https://images.unsplash.com/photo-1520479627275-3eca80b17ecc?&auto=format&fit=crop&w=1280&q=80">
+            <FullsizePicture src="https://via.placeholder.com/1280x720?text=Big+image">
                 <Heading1 className="App-title">This is a heading</Heading1>
             </FullsizePicture>
         </div>
