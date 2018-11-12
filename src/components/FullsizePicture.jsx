@@ -25,13 +25,15 @@ const Fullsized = Component => ({
     ...rest
 }) => {
     const PictureComponent = cxs(Component)(
-        ({ cover = "width", center = false }) => ({
+        ({ cover = "both", center = true }) => ({
             position: "absolute",
             top: center ? "50%" : 0,
             left: center ? "50%" : 0,
             transform: center ? "translate(-50%, -50%)" : "none",
             width: cover === "width" ? "100%" : "auto",
             height: cover === "height" ? "100%" : "auto",
+            minHeight: cover === "both" ? "100%" : "none",
+            minWidth: cover === "both" ? "100%" : "none",
         })
     );
 

@@ -171,7 +171,7 @@ There's also a `<FullsizePicture>` component that you can use to display full-si
 </div>
 ```
 
-It will automatically fill the width or the height of the parent element maintaining the original image ratio. Please note that the parent element needs to have a defined height as you would expect for any background image as well.
+It will automatically fill the parent element maintaining the original image ratio. Please note that the parent element needs to have a defined height as you would expect for any background image as well.
 
 ### Props
 
@@ -185,8 +185,8 @@ It will automatically fill the width or the height of the parent element maintai
 | alt | string |  | Alternative text for image |
 | className | string | | Any additional CSS classes you might want to use to style the image |
 | wrapperClassName | string | | Any additional CSS classes you might want to use to style the wrapper of the `Picture` component |
-| cover | "width" \| "height" | "width" | Decides the fullsize behaviour of the `Picture` component. By default it covers the width of the parent, but can be changed to cover the height instead. |
-| center | boolean | false | Helper prop to horizontally and vertically center the image. |
+| cover | "both" \| "width" \| "height" | "both" | Decides the fullsize behaviour of the `Picture` component. By default it covers the entire parent, but can be changed to cover just the height or width instead. |
+| center | boolean | true | Helper prop to horizontally and vertically center the image. |
 
 ### Use as background image
 

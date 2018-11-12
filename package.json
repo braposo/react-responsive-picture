@@ -19,20 +19,20 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/EDITD/react-responsive-picture.git"
+        "url": "git+https://github.com/braposo/react-responsive-picture.git"
     },
     "files": ["es", "dist", "lib", "src"],
     "keywords": ["image", "picture", "responsive", "react"],
     "author": {
-        "name": "EDITED",
-        "email": "hello@edited.com",
-        "url": "http://edited.tech"
+        "name": "Bernardo Raposo",
+        "email": "hi@bernardoraposo.com",
+        "url": "http://bernardoraposo.com"
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/EDITD/react-responsive-picture/issues"
+        "url": "https://github.com/braposo/react-responsive-picture/issues"
     },
-    "homepage": "https://github.com/EDITD/react-responsive-picture#readme",
+    "homepage": "https://github.com/braposo/react-responsive-picture#readme",
     "devDependencies": {
         "babel-cli": "^6.11.4",
         "babel-core": "^6.25.0",

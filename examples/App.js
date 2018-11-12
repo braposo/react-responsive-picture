@@ -23,12 +23,12 @@ const App = () => (
                 sources={[
                     {
                         srcSet:
-                            "https://placeholdit.co//i/400x400?text=Mobile%20image&bg=450000",
-                        media: "(max-width: 380px)",
+                            "https://via.placeholder.com/400x400?text=Mobile%20image&bg=450000",
+                        media: "(max-width: 500px)",
                     },
                     {
                         srcSet:
-                            "https://placeholdit.co//i/500x250?text=Normal%20image&bg=450000 1x, https://placeholdit.co//i/1000x500?text=Retina%20image&bg=450000 2x",
+                            "https://via.placeholder.com/500x250?text=Normal%20image&bg=450000 1x, https://via.placeholder.com/1000x500?text=Retina%20image&bg=450000 2x",
                     },
                 ]}
             />
@@ -39,12 +39,12 @@ const App = () => (
                 sources={[
                     {
                         srcSet:
-                            "https://placeholdit.co//i/400x400?text=Mobile%20image",
+                            "https://via.placeholder.com/400x400?text=Mobile%20image",
                         media: "(max-width: 380px)",
                     },
                     {
                         srcSet:
-                            "https://placeholdit.co//i/500x250?text=Normal%20image 1x, https://placeholdit.co//i/1000x500?text=Retina%20image 2x",
+                            "https://via.placeholder.com/500x250?text=Normal%20image 1x, https://via.placeholder.com/1000x500?text=Retina%20image 2x",
                     },
                 ]}
                 cover="height"
@@ -53,10 +53,7 @@ const App = () => (
         </div>
         <h2>Full-width Picture with content</h2>
         <div style={{ height: 400 }}>
-            <FullsizePicture
-                src="https://images.unsplash.com/photo-1520479627275-3eca80b17ecc?&auto=format&fit=crop&w=1280&q=80"
-                center={true}
-            >
+            <FullsizePicture src="https://images.unsplash.com/photo-1520479627275-3eca80b17ecc?&auto=format&fit=crop&w=1280&q=80">
                 <Heading1 className="App-title">This is a heading</Heading1>
             </FullsizePicture>
         </div>
@@ -64,7 +61,7 @@ const App = () => (
         <div>
             <Picture
                 className={styles}
-                src="https://placeholdit.co//i/500x250?text=Normal%20image&bg=004500 1x, https://placeholdit.co//i/1000x500?text=Retina%20image&bg=007850 2x"
+                src="https://via.placeholder.com/500x250?text=Normal%20image&bg=004500 1x, https://via.placeholder.com/1000x500?text=Retina%20image&bg=007850 2x"
             />
         </div>
     </div>
