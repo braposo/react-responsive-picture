@@ -16,7 +16,7 @@ A future-proof responsive image component that supports latest `<picture>` speci
 
 ## How to use
 
-Playground: https://codesandbox.io/s/github/EDITD/react-responsive-picture/
+Playground: https://codesandbox.io/s/github/braposo/react-responsive-picture/
 
 ### Code
 
@@ -212,14 +212,14 @@ If you want to use `FullsizePicture` as a background image for other components,
 
 ## Contributing
 
-Please follow our [contributing guidelines](https://github.com/EDITD/react-responsive-picture/blob/master/CONTRIBUTING.md).
+Please follow our [contributing guidelines](https://github.com/braposo/react-responsive-picture/blob/master/CONTRIBUTING.md).
 
 ## License
 
-[MIT](https://github.com/EDITD/react-responsive-picture/blob/master/LICENSE)
+[MIT](https://github.com/braposo/react-responsive-picture/blob/master/LICENSE)
 
 [npm]: https://www.npmjs.com/package/react-responsive-picture
-[license]: https://github.com/EDITD/react-responsive-picture/blob/master/LICENSE
+[license]: https://github.com/braposo/react-responsive-picture/blob/master/LICENSE
 [prs]: http://makeapullrequest.com
 [size]: https://unpkg.com/react-responsive-picture/dist/react-responsive-picture.min.js
 [version-badge]: https://img.shields.io/npm/v/react-responsive-picture.svg?style=flat-square
