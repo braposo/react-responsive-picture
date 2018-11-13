@@ -18,15 +18,16 @@ var reactDomExternal = {
 };
 
 var config = {
+    mode: process.env.NODE_ENV || 'development',
     externals: {
         react: reactExternal,
         "react-dom": reactDomExternal,
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
-                loaders: ["babel-loader"],
+                use: ["babel-loader"],
                 exclude: /node_modules/,
             },
         ],
@@ -40,26 +41,8 @@ var config = {
         libraryTarget: "umd",
     },
     plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.DefinePlugin({
-            "process.env.NODE_ENV": JSON.stringify(env),
-        }),
+        new webpack.optimize.OccurrenceOrderPlugin()
     ],
 };
-
-if (env === "production") {
-    config.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                pure_getters: true,
-                unsafe: true,
-                unsafe_comps: true,
-                screw_ie8: true,
-                warnings: false,
-            },
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin()
-    );
-}
 
 module.exports = config;

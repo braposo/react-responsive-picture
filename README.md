@@ -2,19 +2,21 @@
 
 A future-proof responsive image component that supports latest `<picture>` specification. Uses [picturefill](https://github.com/scottjehl/picturefill) for backward compatibility from IE9+.
 
+[![npm version][version-badge]][npm]
+[![npm downloads][downloads-badge]][npm]
+[![gzip size][size-badge]][size]
+[![MIT License][license-badge]][license]
+[![PRs Welcome][prs-badge]][prs]
+
 ---
 
 ## Installation
 
 `npm install react-responsive-picture` or `yarn add react-responsive-picture`
 
-#### Dependencies
-
-`react-responsive-picture` requires `glamor` installed as peer dependency since version `2.0.0` so you need to add it (in case you're not using it in your project) by running:
-
-`npm install glamor` or `yarn add glamor`
-
 ## How to use
+
+Playground: https://codesandbox.io/s/github/braposo/react-responsive-picture/
 
 ### Code
 
@@ -53,9 +55,6 @@ class App extends Component {
 | sizes | string |  | Sizes attribute to be used with `src` for determing best image for user's viewport. |
 | alt | string |  | Alternative text for image |
 | className | string | | Any additional CSS classes you might want to use to style the image |
-| css | object \|\| array \|\| string |  | Any additional styles you might want to send to the wrapper. Uses [glamorous](https://github.com/paypal/glamorous) to process it so you can send an object, an array or even `glamor` generated string classes. |
-
-**Note:** Before version `2.0.0` the `style` prop was parsed by `glamor` so it wasn't having the same behaviour as applying the `style` prop to any other React component. For that reason, the recommended prop to override the styles is now `css`, which will be parsed by `glamorous` and applied to the component. The `style` prop will be treated as inline styles so it still works, but you can't have the nice features from `glamor` like hover states or media queries so be very careful about using it.
 
 ## Examples
 
@@ -137,7 +136,22 @@ The `sources` prop is where you can determine the behaviour of the `<Picture>` c
 
 For each source you can send an object containing `srcSet`, `media` and `type` although the last two are optional.
 
-## Utilities
+### Styling 
+
+You can use your favourite styling library and style the `Picture` component using the `className` prop.
+
+```jsx
+import { css } from "emotion";
+
+<Picture 
+    className={css`
+      opacity: 0.7;
+    `}
+    src="path-to-image@2x.png 2x, path-to-image.png 1x" 
+/>
+```
+
+## Fullsize images
 
 There's also a `<FullsizePicture>` component that you can use to display full-size images using the same benefits of `<Picture>` for art direction.
 
@@ -157,20 +171,60 @@ There's also a `<FullsizePicture>` component that you can use to display full-si
 </div>
 ```
 
-It will automatically fill the entire parent element maintaining the original image ratio. Please note that the parent element needs to have a defined height as you would expect for any background image as well.
+It will automatically fill the parent element maintaining the original image ratio. Please note that the parent element needs to have a defined height as you would expect for any background image as well.
 
-`FullsizePicture` accepts the same props as `Picture` plus a few more for styling.
+### Props
+
+`FullsizePicture` accepts the same props as `Picture` plus a few more for styling and positioning.
 
 | Prop | Type | Default | Definition |
 | --- | --- | --- | --- |
-| pictureClassName | string | | Any additional CSS classes you might want to use to style the inner `Picture` component |
-| pictureCSS | object \|\| array \|\| string |  | Any additional styles you might want to send to the inner `Picture` component |
+| sources | array |  | The array of source objects. Check Sources section for more information. |
+| src | string | (transparent pixel) | Source for standalone/fallback image. To prevent issues in some browsers, by default `src` is set to a 1x1 transparent pixel data image. |
+| sizes | string |  | Sizes attribute to be used with `src` for determing best image for user's viewport. |
+| alt | string |  | Alternative text for image |
+| className | string | | Any additional CSS classes you might want to use to style the image |
+| wrapperClassName | string | | Any additional CSS classes you might want to use to style the wrapper of the `Picture` component |
+| cover | "both" \| "width" \| "height" | "both" | Decides the fullsize behaviour of the `Picture` component. By default it covers the entire parent, but can be changed to cover just the height or width instead. |
+| center | boolean | true | Helper prop to horizontally and vertically center the image. |
+
+### Use as background image
+
+If you want to use `FullsizePicture` as a background image for other components, you can pass them as children too.
+
+```jsx
+<section style={{ height: 200 }}>
+    <FullsizePicture
+        sources = {[
+            {
+                srcSet: "path-to-mobile-image.jpg, path-to-mobile-image@2x.jpg 2x",
+                media: "(max-width: 420px)",
+            },
+            {
+                srcSet: "path-to-desktop-image.jpg 1x, path-to-desktop-image@2x.jpg 2x",
+            },
+        ]}
+    >
+      <Heading1>This is the section title</Heading1>
+    </FullsizePicture>
+</section>
+```
 
 ## Contributing
 
-Please follow our [contributing guidelines](https://github.com/EDITD/react-responsive-picture/blob/master/CONTRIBUTING.md).
+Please follow our [contributing guidelines](https://github.com/braposo/react-responsive-picture/blob/master/CONTRIBUTING.md).
 
 ## License
 
-[MIT](https://github.com/EDITD/react-responsive-picture/blob/master/LICENSE)
+[MIT](https://github.com/braposo/react-responsive-picture/blob/master/LICENSE)
 
+[npm]: https://www.npmjs.com/package/react-responsive-picture
+[license]: https://github.com/braposo/react-responsive-picture/blob/master/LICENSE
+[prs]: http://makeapullrequest.com
+[size]: https://unpkg.com/react-responsive-picture/dist/react-responsive-picture.min.js
+[version-badge]: https://img.shields.io/npm/v/react-responsive-picture.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dm/react-responsive-picture.svg?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/react-responsive-picture.svg?style=flat-square
+[size-badge]: http://img.badgesize.io/https://unpkg.com/react-responsive-picture/dist/react-responsive-picture.min.js?compression=gzip&style=flat-square
+[modules-badge]: https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg?style=flat-square
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
