@@ -18,7 +18,7 @@ const PictureWrapper = cxs("div")({
     position: "absolute",
 });
 
-const Fullsized = Component => ({
+const Fullsized = (Component) => ({
     className,
     wrapperClassName,
     children,

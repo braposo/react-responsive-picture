@@ -5,12 +5,14 @@ import canUseDom from "can-use-dom";
 class Picture extends React.PureComponent {
     componentDidMount() {
         // c.f. https://github.com/scottjehl/picturefill/pull/556
-        var picturefill;
+        let picturefill;
         try {
             picturefill = require("picturefill");
-        } catch (x) {}
+        } catch (x) { return; }
 
-        if (picturefill) picturefill(); // browser
+        if (picturefill) {
+            picturefill(); // browser
+        }
         // else node
     }
 
