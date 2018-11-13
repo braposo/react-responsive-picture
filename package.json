@@ -13,8 +13,7 @@
         "clean": "rimraf lib dist es",
         "dev": "yarn run clean && cross-env BABEL_ENV=commonjs babel src -d lib --watch",
         "lint": "eslint src/ --ext .js,.jsx",
-        "prepublish": "yarn run clean && yarn run build",
-        "release": "np",
+        "prepack": "yarn run clean && yarn run build",
         "test": "echo \"No tests available\" && exit 0"
     },
     "repository": {
@@ -47,7 +46,6 @@
         "eslint-config-edited": "^1.0.0",
         "eslint-plugin-import": "^2.3.0",
         "eslint-plugin-react": "^7.1.0",
-        "np": "^2.16.0",
         "react": "^15.6.1",
         "rimraf": "^2.4.3",
         "webpack": "^3.0.0"
