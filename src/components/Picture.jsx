@@ -8,7 +8,9 @@ class Picture extends React.PureComponent {
         let picturefill;
         try {
             picturefill = require("picturefill");
-        } catch (x) { return; }
+        } catch (x) {
+            return;
+        }
 
         if (picturefill) {
             picturefill(); // browser
@@ -73,9 +75,15 @@ class Picture extends React.PureComponent {
 }
 
 Picture.propTypes = {
-    sources: PropTypes.array,
+    sources: PropTypes.arrayOf(
+        PropTypes.shape({
+            srcSet: PropTypes.string.isRequired,
+            media: PropTypes.string,
+            type: PropTypes.string.isRequired,
+        })
+    ),
     src: PropTypes.string.isRequired,
-    alt: PropTypes.string,
+    alt: PropTypes.string.isRequired,
     className: PropTypes.string,
     sizes: PropTypes.string,
 };
@@ -83,6 +91,7 @@ Picture.propTypes = {
 Picture.defaultProps = {
     src:
         "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+    alt: "",
 };
 
 export default Picture;
