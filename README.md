@@ -16,7 +16,7 @@ A future-proof responsive image component that supports latest `<picture>` speci
 
 ## How to use
 
-Playground: https://codesandbox.io/s/github/braposo/react-responsive-picture/
+[![Edit react-responsive-picture][codesandbox-badge]][codesandbox]
 
 ### Code
 
@@ -228,3 +228,5 @@ Please follow our [contributing guidelines](https://github.com/braposo/react-res
 [size-badge]: http://img.badgesize.io/https://unpkg.com/react-responsive-picture/dist/react-responsive-picture.min.js?compression=gzip&style=flat-square
 [modules-badge]: https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg?style=flat-square
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[codesandbox-badge]: https://codesandbox.io/static/img/play-codesandbox.svg
+[codesandbox]: https://codesandbox.io/s/github/braposo/react-responsive-picture/
