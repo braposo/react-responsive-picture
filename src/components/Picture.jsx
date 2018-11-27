@@ -79,7 +79,7 @@ Picture.propTypes = {
         PropTypes.shape({
             srcSet: PropTypes.string.isRequired,
             media: PropTypes.string,
-            type: PropTypes.string.isRequired,
+            type: PropTypes.string,
         })
     ),
     src: PropTypes.string.isRequired,
