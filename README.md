@@ -23,26 +23,24 @@ A future-proof responsive image component that supports latest `<picture>` speci
 ```jsx
 import { Picture } from 'react-responsive-picture';
 
-class App extends Component {
-    render() {
-        return (
-            <Picture
-                sources = {[
-                    {
-                        srcSet: "path-to-mobile-image.jpg, path-to-mobile-image@2x.jpg 2x",
-                        media: "(max-width: 420px)",
-                    },
-                    {
-                        srcSet: "path-to-desktop-image.jpg 1x, path-to-desktop-image@2x.jpg 2x",
-                    },
-                    {
-                        srcSet: "path-to-desktop-image.webp",
-                        type: "image/webp"
-                    }
-                ]}
-            />
-        );
-    };
+function SomeComponent() {
+    return (
+        <Picture
+            sources = {[
+                {
+                    srcSet: "path-to-mobile-image.jpg, path-to-mobile-image@2x.jpg 2x",
+                    media: "(max-width: 420px)",
+                },
+                {
+                    srcSet: "path-to-desktop-image.jpg 1x, path-to-desktop-image@2x.jpg 2x",
+                },
+                {
+                    srcSet: "path-to-desktop-image.webp",
+                    type: "image/webp"
+                }
+            ]}
+        />
+    );
 }
 ```
 
