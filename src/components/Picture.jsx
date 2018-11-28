@@ -51,12 +51,12 @@ class Picture extends React.PureComponent {
     }
 
     renderImage(props, skipSizes = false) {
-        const { alt, src, sizes, ...rest } = props;
+        const { alt = "", src, sizes, ...rest } = props;
 
         // Adds sizes props if sources isn't defined
         const sizesProp = skipSizes ? null : { sizes };
 
-        return <img alt={alt || ""} srcSet={src} {...sizesProp} {...rest} />;
+        return <img alt={alt} srcSet={src} {...sizesProp} {...rest} />;
     }
 
     render() {
