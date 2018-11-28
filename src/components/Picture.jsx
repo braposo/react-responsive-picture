@@ -56,7 +56,7 @@ class Picture extends React.PureComponent {
         // Adds sizes props if sources isn't defined
         const sizesProp = skipSizes ? null : { sizes };
 
-        return <img alt={alt} srcSet={src} {...sizesProp} {...rest} />;
+        return <img alt={alt || ""} srcSet={src} {...sizesProp} {...rest} />;
     }
 
     render() {
@@ -91,7 +91,6 @@ Picture.propTypes = {
 Picture.defaultProps = {
     src:
         "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
-    alt: "",
 };
 
 export default Picture;
