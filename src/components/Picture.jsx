@@ -8,7 +8,9 @@ class Picture extends React.PureComponent {
         let picturefill;
         try {
             picturefill = require("picturefill");
-        } catch (x) { return; }
+        } catch (x) {
+            return;
+        }
 
         if (picturefill) {
             picturefill(); // browser
@@ -54,7 +56,7 @@ class Picture extends React.PureComponent {
         // Adds sizes props if sources isn't defined
         const sizesProp = skipSizes ? null : { sizes };
 
-        return <img alt={alt} srcSet={src} {...sizesProp} {...rest} />;
+        return <img alt={alt || ""} srcSet={src} {...sizesProp} {...rest} />;
     }
 
     render() {
@@ -73,9 +75,15 @@ class Picture extends React.PureComponent {
 }
 
 Picture.propTypes = {
-    sources: PropTypes.array,
+    sources: PropTypes.arrayOf(
+        PropTypes.shape({
+            srcSet: PropTypes.string.isRequired,
+            media: PropTypes.string,
+            type: PropTypes.string,
+        })
+    ),
     src: PropTypes.string.isRequired,
-    alt: PropTypes.string,
+    alt: PropTypes.string.isRequired,
     className: PropTypes.string,
     sizes: PropTypes.string,
 };
