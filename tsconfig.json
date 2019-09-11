@@ -1,0 +1,37 @@
+// For a full list of options visit https://www.typescriptlang.org/docs/handbook/compiler-options.html
+
+{
+    "compilerOptions": {
+        // JS compatibility
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+
+        // Compilation options
+        "lib": ["dom", "es2017"],
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "jsx": "react",
+        "noEmit": true,
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "pretty": true,
+
+        // Rules
+        "strict": true,
+        "noImplicitAny": false,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "strictPropertyInitialization": true,
+        "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false,
+
+        // Resolvers
+        "baseUrl": "src"
+    },
+    "exclude": ["node_modules"]
+}

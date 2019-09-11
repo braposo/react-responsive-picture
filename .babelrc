@@ -7,7 +7,8 @@
                 "modules": false
             }
         ],
-        "@babel/react"
+        "@babel/react",
+        "@babel/typescript"
     ],
     "plugins": [
         "@babel/plugin-proposal-object-rest-spread"
