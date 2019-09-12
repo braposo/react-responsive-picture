@@ -1,6 +1,8 @@
 /* eslint-env node */
-import webpack from "webpack";
-import path from "path";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const webpack = require("webpack");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
 
 const reactExternal = {
     root: "React",
@@ -17,7 +19,7 @@ const reactDomExternal = {
 };
 
 const config = {
-    mode: process.env.NODE_ENV || 'development',
+    mode: process.env.NODE_ENV || "development",
     externals: {
         react: reactExternal,
         "react-dom": reactDomExternal,
@@ -32,8 +34,8 @@ const config = {
             {
                 test: /\.js$/,
                 use: ["source-map-loader"],
-                enforce: "pre"
-              },
+                enforce: "pre",
+            },
         ],
     },
     resolve: {
@@ -44,9 +46,7 @@ const config = {
         library: "ReactResponsivePicture",
         libraryTarget: "umd",
     },
-    plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin()
-    ],
+    plugins: [new webpack.optimize.OccurrenceOrderPlugin()],
 };
 
 module.exports = config;
