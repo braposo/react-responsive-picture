@@ -1,24 +1,26 @@
 /* eslint-env node */
-var webpack = require("webpack");
-var path = require("path");
-var env = process.env.NODE_ENV;
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const webpack = require("webpack");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
 
-var reactExternal = {
+const reactExternal = {
     root: "React",
     commonjs2: "react",
     commonjs: "react",
     amd: "React",
 };
 
-var reactDomExternal = {
+const reactDomExternal = {
     commonjs: "react-dom",
     commonjs2: "react-dom",
     amd: "ReactDOM",
     root: "ReactDOM",
 };
 
-var config = {
-    mode: process.env.NODE_ENV || 'development',
+const config = {
+    mode: process.env.NODE_ENV || "development",
+    devtool: "cheap-source-map",
     externals: {
         react: reactExternal,
         "react-dom": reactDomExternal,
@@ -26,23 +28,26 @@ var config = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.tsx?$/,
                 use: ["babel-loader"],
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.js$/,
+                use: ["source-map-loader"],
+                enforce: "pre",
             },
         ],
     },
     resolve: {
         modules: [path.join(__dirname, "./src/"), "node_modules"],
-        extensions: [".js", ".jsx"],
+        extensions: [".js", ".tsx", ".ts"],
     },
     output: {
         library: "ReactResponsivePicture",
         libraryTarget: "umd",
     },
-    plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin()
-    ],
+    plugins: [new webpack.optimize.OccurrenceOrderPlugin()],
 };
 
 module.exports = config;

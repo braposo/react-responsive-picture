@@ -1,13 +1,24 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import canUseDom from "can-use-dom";
 
-class Picture extends React.PureComponent {
-    componentDidMount() {
+export type Props = {
+    sources?: {
+        srcSet: string;
+        media?: string;
+        type?: string;
+    }[];
+    src?: string;
+    alt?: string;
+    className?: string;
+    sizes?: string;
+};
+
+class Picture extends React.PureComponent<Props> {
+    componentDidMount(): void {
         // c.f. https://github.com/scottjehl/picturefill/pull/556
         let picturefill;
         try {
-            picturefill = require("picturefill");
+            picturefill = require("picturefill"); // eslint-disable-line global-require
         } catch (x) {
             return;
         }
@@ -18,9 +29,11 @@ class Picture extends React.PureComponent {
         // else node
     }
 
-    renderSources() {
+    renderSources(): JSX.Element | (JSX.Element | null)[] | null {
         const ieVersion =
-            canUseDom && document.documentMode ? document.documentMode : -1;
+            canUseDom && document["documentMode"]
+                ? document["documentMode"]
+                : -1;
         const { sources } = this.props;
 
         if (sources == null) {
@@ -50,8 +63,16 @@ class Picture extends React.PureComponent {
         return mappedSources;
     }
 
-    renderImage(props, skipSizes = false) {
-        const { alt = "", src, sizes, ...rest } = props;
+    renderImage(
+        props: Exclude<Props, "sources">,
+        skipSizes = false
+    ): JSX.Element {
+        const {
+            alt = "",
+            src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+            sizes,
+            ...rest
+        } = props;
 
         // Adds sizes props if sources isn't defined
         const sizesProp = skipSizes ? null : { sizes };
@@ -59,7 +80,7 @@ class Picture extends React.PureComponent {
         return <img alt={alt} srcSet={src} {...sizesProp} {...rest} />;
     }
 
-    render() {
+    render(): JSX.Element {
         const { sources, ...rest } = this.props;
         if (sources != null) {
             return (
@@ -73,24 +94,5 @@ class Picture extends React.PureComponent {
         return this.renderImage(rest);
     }
 }
-
-Picture.propTypes = {
-    sources: PropTypes.arrayOf(
-        PropTypes.shape({
-            srcSet: PropTypes.string.isRequired,
-            media: PropTypes.string,
-            type: PropTypes.string,
-        })
-    ),
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    sizes: PropTypes.string,
-};
-
-Picture.defaultProps = {
-    src:
-        "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
-};
 
 export default Picture;

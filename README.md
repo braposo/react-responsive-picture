@@ -14,11 +14,13 @@ A future-proof responsive image component that supports latest `<picture>` speci
 
 `npm install react-responsive-picture` or `yarn add react-responsive-picture`
 
-## How to use
+## Playground
 
 [![Edit react-responsive-picture][codesandbox-badge]][codesandbox]
 
-### Code
+You can also run the examples by cloning the repo and running `yarn start`.
+
+### Usage
 
 ```jsx
 import { Picture } from 'react-responsive-picture';
@@ -227,4 +229,4 @@ Please follow our [contributing guidelines](https://github.com/braposo/react-res
 [modules-badge]: https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg?style=flat-square
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [codesandbox-badge]: https://codesandbox.io/static/img/play-codesandbox.svg
-[codesandbox]: https://codesandbox.io/s/github/braposo/react-responsive-picture/
+[codesandbox]: https://codesandbox.io/s/react-responsive-picture-playground-e6kbv
