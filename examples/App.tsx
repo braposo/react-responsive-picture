@@ -1,7 +1,7 @@
 import React from "react";
-import { Picture, FullsizePicture } from "../src";
 import cxs from "cxs/component";
-import { default as cxsStyles } from "cxs";
+import cxsStyles from "cxs";
+import { Picture, FullsizePicture } from "../src";
 
 const styles = cxsStyles({
     border: "1px solid red",
@@ -15,7 +15,7 @@ const Heading1 = cxs("h1")({
     marginTop: 50,
 });
 
-const App = () => (
+const App = (): JSX.Element => (
     <div>
         <h2>Picture with art direction</h2>
         <div>
