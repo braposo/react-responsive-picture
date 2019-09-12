@@ -5,16 +5,18 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
 
-        "lib": ["dom", "es2017"],
-        "target": "es6",
+        "lib": ["es2015", "dom"],
+        "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
         "jsx": "react",
-        "noEmit": true,
+        "emitDeclarationOnly": true,
         "preserveConstEnums": true,
         "removeComments": true,
         "sourceMap": true,
         "pretty": true,
+        "declaration": true,
+        "outDir": "./lib",
 
         "strict": true,
         "noImplicitAny": false,
@@ -27,5 +29,6 @@
 
         "baseUrl": "src"
     },
+    "include": ["src"],
     "exclude": ["node_modules"]
 }
