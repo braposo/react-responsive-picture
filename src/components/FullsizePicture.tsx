@@ -1,17 +1,16 @@
-import Picture, { Props as PictureProps } from "./Picture";
 import React from "react";
 import cxs from "cxs/component";
+import Picture, { Props as PictureProps } from "./Picture";
 
 type Props = {
     className?: string;
     wrapperClassName?: string;
+    children?: JSX.Element | JSX.Element[];
 } & StyledPictureProps;
 
 type StyledPictureProps = {
     center?: boolean;
     cover?: string;
-    className?: string;
-    [x: string]: any;
 } & PictureProps;
 
 const Wrapper: React.FunctionComponent<{ className?: string }> = cxs("div")({
@@ -29,15 +28,8 @@ const PictureWrapper: React.FunctionComponent = cxs("div")({
     position: "absolute",
 });
 
-const Fullsized: React.FunctionComponent<Props> = ({
-    className,
-    wrapperClassName,
-    children,
-    ...rest
-}: Props) => {
-    const StyledPicture: React.FunctionComponent<StyledPictureProps> = cxs(
-        Picture
-    )(({ cover = "both", center = true }) => ({
+const StyledPicture: React.FunctionComponent<StyledPictureProps> = cxs(Picture)(
+    ({ cover = "both", center = true }) => ({
         position: "absolute",
         top: center ? "50%" : 0,
         left: center ? "50%" : 0,
@@ -46,8 +38,15 @@ const Fullsized: React.FunctionComponent<Props> = ({
         height: cover === "height" ? "100%" : "auto",
         minHeight: cover === "both" ? "100%" : "none",
         minWidth: cover === "both" ? "100%" : "none",
-    }));
+    })
+);
 
+const Fullsized: React.FunctionComponent<Props> = ({
+    className,
+    wrapperClassName,
+    children,
+    ...rest
+}: Props) => {
     return (
         <Wrapper className={wrapperClassName}>
             <PictureWrapper>

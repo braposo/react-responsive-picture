@@ -18,7 +18,7 @@ class Picture extends React.PureComponent<Props> {
         // c.f. https://github.com/scottjehl/picturefill/pull/556
         let picturefill;
         try {
-            picturefill = require("picturefill");
+            picturefill = require("picturefill"); // eslint-disable-line global-require
         } catch (x) {
             return;
         }
@@ -63,7 +63,10 @@ class Picture extends React.PureComponent<Props> {
         return mappedSources;
     }
 
-    renderImage(props: Exclude<Props, "sources">, skipSizes = false): JSX.Element {
+    renderImage(
+        props: Exclude<Props, "sources">,
+        skipSizes = false
+    ): JSX.Element {
         const {
             alt = "",
             src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
