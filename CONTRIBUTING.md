@@ -10,40 +10,36 @@ Before opening an issue, please search the [issue tracker](https://github.com/br
 
 Visit the [Issue tracker](https://github.com/braposo/react-responsive-picture/issues) to find a list of open issues that need attention.
 
-The quickest and easiest way of starting developing this library is by using the specific Codesandbox available at: https://codesandbox.io/s/github/braposo/react-responsive-picture/
-
-If you want to use the more traditional way, start by forking and then cloning the repo:
+Start by forking and then cloning the repo:
 
 ```
 git clone https://github.com/your-username/react-responsive-picture.git
 ```
 
-Build package for dev mode. It will automatically watch any changes in `src/` forlder:
+Run the examples, which will automatically watch any changes in `src/` folder:
 
 ```
-yarn run dev
+yarn start
 ```
-
-We follow [eslint-config-edited](https://www.npmjs.com/package/eslint-config-edited) for code style.
 
 ### Building and testing
 
 Build package:
 
 ```
-yarn run build
+yarn build
 ```
 
 To run the tests:
 
 ```
-npm run test
+yarn test
 ```
 
 To perform linting with `eslint`, run the following:
 
 ```
-npm run lint
+yarn lint
 ```
 
 ### New Features
