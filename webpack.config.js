@@ -20,6 +20,7 @@ const reactDomExternal = {
 
 const config = {
     mode: process.env.NODE_ENV || "development",
+    devtool: "cheap-source-map",
     externals: {
         react: reactExternal,
         "react-dom": reactDomExternal,
