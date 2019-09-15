@@ -10,7 +10,7 @@ type Props = {
 
 type StyledPictureProps = {
     center?: boolean;
-    cover?: string;
+    cover?: "width" | "height" | "both";
 } & PictureProps;
 
 const Wrapper: React.FunctionComponent<{ className?: string }> = cxs("div")({
