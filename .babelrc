@@ -9,5 +9,10 @@
         ],
         "@babel/react",
         "@babel/typescript"
-    ]
+    ],
+    "env": {
+        "commonjs": {
+            "plugins": ["@babel/plugin-transform-modules-commonjs"]
+        }
+    }
 }
